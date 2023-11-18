@@ -1,6 +1,16 @@
 /* Custom Styles */
 body {
     background-color: #fce4ec; /* Main background color */
+    height: 600px;
+    display: flex;
+    flex-direction: column;
+  }
+html {
+    height: 100%;
+  }
+  
+main {
+    flex: 1;
   }
   
   /* Navigation Bar */
@@ -47,4 +57,12 @@ body {
     padding: 0.5rem 0;
   }
   
-  
+  footer.bg-darkpink {
+    background-color: #fa93b6 !important;
+  }
+
+  .black{
+    color:black;
+  }
+
+

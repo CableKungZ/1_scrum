@@ -1,0 +1,49 @@
+/* Custom Styles */
+body {
+    background-color: #fce4ec; /* Main background color */
+  }
+  
+  /* Navigation Bar */
+  .navbar {
+    background-color: #ff7eb6; /* Navbar background color */
+  }
+  
+  /* Main Content */
+  .container {
+    margin-top: 5rem;
+  }
+  
+  /* Footer */
+  footer {
+    background-color: #fde9eb; /* Footer background color */
+    color: white; /* Text color for the footer */
+  }
+  
+  /* Footer Contact Us */
+  .footer-contact {
+    padding: 0 1rem;
+  }
+  
+  /* Bootstrap Overrides */
+  .navbar-dark .navbar-toggler-icon {
+    background-color: white; /* Navbar toggler icon color */
+  }
+  
+  .navbar-dark .navbar-nav .nav-link {
+    color: white; /* Navbar link color */
+  }
+  
+  .navbar-dark .navbar-toggler {
+    border-color: white; /* Navbar toggler border color */
+  }
+  
+  /* Footer Text Alignment */
+  .text-right-md {
+    text-align: right;
+  }
+  
+  /* Footer Copyright */
+  .footer-copyright {
+    padding: 0.5rem 0;
+  }
+  

@@ -2,6 +2,10 @@
     list-style: none;
 }
 
+.label-color-font {
+  color: black;
+}
+
 .ul-text-glow {
     display: flex;
     gap: -10px;
@@ -167,3 +171,9 @@
     transform: translate3d(80%, 0, -550px);
     box-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
   }
+
+
+.font-condition {
+    font-family: sans-serif;
+    font-weight: bold;
+}

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Form with Pink Theme</title>
+    <style>
+        body {
+            background-color: #fde9eb; /* สีพื้นหลัง */
+            color: #333; /* สีข้อความ */
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #ff7eb6; /* สีพื้นหลังส่วนหัวเว็บ */
+            padding: 20px;
+            text-align: center;
+        }
+
+        h2 {
+            color: #fff; /* สีข้อความที่ตรงกับพื้นหลัง */
+        }
+
+        main {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff; /* สีพื้นหลังของพื้นที่เนื้อหา */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* เพิ่มเงาใต้กล่อง */
+        }
+
+        form {
+            /* เพิ่มสไตล์ฟอร์มตามที่ต้องการ */
+        }
+
+        /* จัดวางที่มุมขวาหน้า */
+        .right-corner {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background-color: #ff7eb6; /* สีพื้นหลังของข้อมูล */
+            padding: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* เพิ่มเงาใต้กล่อง */
+            color: #fff; /* สีข้อความ */
+            border-radius: 5px; /* ทำขอบเล็กน้อย */
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h2>Contact Us</h2>
+    </header>
+
+    <main>
+        <form action="/submit_form" method="post">
+            <!-- ช่องกรอกชื่อ -->
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <!-- ช่องกรอกอีเมล -->
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <!-- ช่องกรอกข้อความ -->
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" rows="4" required></textarea>
+
+            <!-- ปุ่มส่งฟอร์ม -->
+            <button type="submit">Submit</button>
+        </form>
+    </main>
+
+    <!-- ข้อมูลที่โชว์มุมขวาหน้า -->
+    <div class="right-corner">
+        <p>Additional Information</p>
+        <p>Phone: 0123456789</p>
+        <p>Email: babanana@email.com</p>
+    </div>
+
+</body>
+</html>

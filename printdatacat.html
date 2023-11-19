@@ -4,6 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Cat Information</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="styleTime.css">
+  <link rel="icon" href="https://img.pikbest.com/origin/09/08/90/25GpIkbEsTwmE.png!sw800" type="image/png">
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -11,9 +14,12 @@
       padding: 0;
       background-color: #f0f0f0;
       display: flex;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    .navbar {
+      background-color: rgb(250, 159, 174);
     }
 
     .cat-info {
@@ -22,6 +28,9 @@
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
       padding: 20px;
       text-align: center;
+      margin: auto;
+      margin-top: 20px;
+      margin-bottom: 20px;
     }
 
     h1 {
@@ -46,11 +55,45 @@
     select {
       padding: 5px;
     }
+
+    .footer {
+      background-color: rgb(250, 159, 174);
+      text-align: center;
+      padding: 10px;
+      margin-top: auto;
+    }
   </style>
 </head>
-<body>
-
-  <div class="cat-info">
+<body style="background-color: rgb(236, 178, 188);">
+  <!-- Navigation Bar -->
+  <nav class="navbar navbar-expand-lg navbar-light">
+    <a class="navbar-brand" href="#">Profile Cat</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="catdata.html">จัดการข้อมูลแมว</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="reserve.html">การจองห้อง</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="inforoom2.html">ข้อมูลห้อง</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="Showcondition.html">เงื่อนไขการบริการ</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="login.html">เข้าสู่ระบบ</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  
+  <!-- Main Content -->
+  <div class="cat-info" style="background-color: rgb(247, 213, 219);">
     <h1>Cat Information</h1>
 
     <label for="catSelector">Select a Cat:</label>
@@ -69,6 +112,15 @@
       <p><strong>Personality:</strong> <span id="catPersonality">Playful and affectionate</span></p>
     </div>
   </div>
+  
+  <!-- Footer -->
+  <div class="footer text-light p-4">
+    <h4>Contact Us</h4>
+    <p>Name : mama mama</p>
+    <p>Email: your@email.com</p>
+    <p>Phone: 123-456-7890</p>
+    <p>&copy; 2023 Your Website. All rights reserved.</p>
+  </div>
 
   <script>
     function showCatInfo(cat) {
@@ -86,6 +138,9 @@
       document.getElementById("catImage").src = catDetails[cat].image;
     }
   </script>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
 </body>
 </html>

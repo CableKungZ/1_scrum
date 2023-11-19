@@ -2,145 +2,136 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cat Information</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Edit Profile</title>
+  <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-  <link rel="stylesheet" href="styleTime.css">
-  <link rel="icon" href="https://img.pikbest.com/origin/09/08/90/25GpIkbEsTwmE.png!sw800" type="image/png">
+
   <style>
     body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #f0f0f0;
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
+        font-family: Arial, sans-serif;
+        background-color: #fce4ec;
+        margin: 0;
+        padding: 0;
     }
 
-    .navbar {
-      background-color: rgb(250, 159, 174);
-    }
-
-    .cat-info {
-      background-color: #fff;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-      padding: 20px;
-      text-align: center;
-      margin: auto;
-      margin-top: 20px;
-      margin-bottom: 20px;
-    }
-
-    h1 {
-      color: #333;
-    }
-
-    img {
-      max-width: 100%;
-      border-radius: 5px;
-      margin-bottom: 15px;
-    }
-
-    p {
-      color: #555;
+    .container {
+        max-width: 600px;
+        margin: 50px auto;
+        background-color: rgb(245, 175, 216);
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     }
 
     label {
-      display: block;
-      margin-bottom: 10px;
+        display: block;
+        margin-bottom: 8px;
     }
 
-    select {
-      padding: 5px;
+    input {
+        width: 100%;
+        padding: 8px;
+        margin-bottom: 16px;
+        box-sizing: border-box;
     }
 
-    .footer {
-      background-color: rgb(250, 159, 174);
-      text-align: center;
-      padding: 10px;
-      margin-top: auto;
+    button {
+        background-color: #4caf50;
+        color: #fff;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
     }
-  </style>
+
+    .profile-img {
+        max-width: 100px;
+        border-radius: 20%;
+        margin-bottom: 16px;
+    }
+</style>
 </head>
-<body style="background-color: rgb(236, 178, 188);">
-  <!-- Navigation Bar -->
-  <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #f8f2f4;">
-    <a class="navbar-brand" href="#">Profile Cat</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav ml-auto">
-        <li class="nav-item">
-          <a class="nav-link" href="catdata.html">จัดการข้อมูลแมว</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="reserve.html">การจองห้อง</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="inforoom2.html">ข้อมูลห้อง</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="Showcondition.html">เงื่อนไขการบริการ</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="login.html">เข้าสู่ระบบ</a>
-        </li>
-      </ul>
-    </div>
-  </nav>
-  
-  <!-- Main Content -->
-  <div class="cat-info" style="background-color: rgb(247, 213, 219);">
-    <h1>Cat Information</h1>
+<body>
 
-    <label for="catSelector">Select a Cat:</label>
-    <select id="catSelector" onchange="showCatInfo(this.value)">
-      <option value="whiskers">Whiskers</option>
-      <option value="mittens">Mittens</option>
-      <!-- Add more cat options as needed -->
-    </select>
+<!-- Navigation Bar -->
+<nav class="navbar navbar-expand-lg navbar-light " style="background-color: #f8f2f4;">
+  <a class="navbar-brand" href="home.html">
+    <img > Filo </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="catdata.html">จัดการข้อมูลแมว</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="reserve.html">การจองห้อง</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="inforoom2.html">ข้อมูลห้อง</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="Showcondition.html">เงื่อนไขการบริการ</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="login.html">เข้าสู่ระบบ</a>
+      </li>
+    </ul>
+  </div>
+</nav>
 
-    <div id="catDetails">
-      <img id="catImage" src="./cat/cat-1.png" width="10%" height="10%" alt="Cat Image">
-      <p><strong>Name:</strong> <span id="catName">Whiskers</span></p>
-      <p><strong>Breed:</strong> <span id="catBreed">Siamese</span></p>
-      <p><strong>Age:</strong> <span id="catAge">2 years</span></p>
-      <p><strong>Color:</strong> <span id="catColor">Seal Point</span></p>
-      <p><strong>Personality:</strong> <span id="catPersonality">Playful and affectionate</span></p>
+<!-- Main Content -->
+<div class="container">
+  <h2>Edit Profile</h2>
+  <div>
+      <!-- Display User Information -->
+      <div>
+          <img class="profile-img" src="img/profile.jpg" alt="Profile Image">
+          <p><strong>Username:</strong> Time_me_me</p>
+          <p><strong>Email:</strong> timemie@gmail.com</p>
+      </div>
+
+      <!-- Edit Profile Form -->
+      <form action="update_profile.php" method="post" enctype="multipart/form-data">
+          <label for="profile-image">Profile Image:</label>
+          <input type="file" id="profile-image" name="profile-image" accept="image/*">
+
+          <label for="username">Username:</label>
+          <input type="text" id="username" name="username" required>
+
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" required>
+
+          <label for="password">Password:</label>
+          <input type="password" id="password" name="password" required>
+
+          <button type="submit">Save Changes</button>
+      </form>
+  </div>
+</div>
+<!-- Footer -->
+<footer class=" text-light p-4 mt-5" style="background-color: rgb(250, 159, 174);">
+  <div>
+    <div class="row">
+      <div class="col-md-6">
+        <h4>Contact Us</h4>
+        <p>Name : mama mama</p>
+        <p>Email: your@email.com</p>
+        <p>Phone: 123-456-7890</p>
+      </div>
+      <div class="col-md-6 text-right">
+        <p>&copy; 2023 Your Website. All rights reserved.</p>
+      </div>
     </div>
   </div>
-  
-  <!-- Footer -->
-  <div class="footer text-light p-4">
-    <h4>Contact Us</h4>
-    <p>Name : mama mama</p>
-    <p>Email: your@email.com</p>
-    <p>Phone: 123-456-7890</p>
-    <p>&copy; 2023 Your Website. All rights reserved.</p>
-  </div>
+</footer>
 
-  <script>
-    function showCatInfo(cat) {
-      const catDetails = {
-        whiskers: { name: "Whiskers", breed: "Siamese", age: "2 years", color: "Seal Point", personality: "Playful and affectionate", image: "./cat/cat-1.png" },
-        mittens: { name: "Mittens", breed: "Persian", age: "3 years", color: "White", personality: "Calm and elegant", image: "./cat/cat-2.png" },
-        // Add more cat details as needed
-      };
-
-      document.getElementById("catName").innerText = catDetails[cat].name;
-      document.getElementById("catBreed").innerText = catDetails[cat].breed;
-      document.getElementById("catAge").innerText = catDetails[cat].age;
-      document.getElementById("catColor").innerText = catDetails[cat].color;
-      document.getElementById("catPersonality").innerText = catDetails[cat].personality;
-      document.getElementById("catImage").src = catDetails[cat].image;
-    }
-  </script>
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<!-- Bootstrap JS, Popper.js, and jQuery -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
 </body>
 </html>

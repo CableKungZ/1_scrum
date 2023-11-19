@@ -6,10 +6,9 @@
     <title>แบบฟอร์มสำหรับข้อมูลแมว</title>
     <style>
         body {
-<<<<<<< HEAD
-            background-color: #fce4ec;
-            color: #0c0c0c;
-            font-family: Arial, sans-serif;
+            background-color: #fce4ec; /* สีพื้นหลัง */
+            color: #0c0c0c; /* สีตัวอักษรหรือข้อความ */
+            font-family: Arial, sans-serif; /* แนะนำให้ใช้ฟอนต์ที่เหมาะสมกับเว็บ */
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -18,56 +17,24 @@
             margin: 0;
         }
 
-        .header {
-            background-color: #ff7eb6;
-            color: black;
-            padding: 20px;
-            text-align: center;
-            width: 50%;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-
         h2 {
-            margin: 0;
+            color: #0c0c0c; /* สีของหัวข้อหลัก */
+            margin-bottom: 20px; /* เพิ่มระยะห่างด้านล่าง */
         }
 
         form {
-            background-color: #fce4ec;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            width: 50%;
-            text-align: left;
-            margin: 20px auto;
-        }
-
-        label {
-            color: #ff7eb6;
-            display: block;
-            margin-bottom: 8px;
-            width: 100%;
-=======
-            background-color: #fce4ec; /* สีพื้นหลัง */
-            color: #fff; /* สีตัวอักษรหรือข้อความ */
-            font-family: Arial, sans-serif; /* แนะนำให้ใช้ฟอนต์ที่เหมาะสมกับเว็บ */
-        }
-
-        h2 {
-            color:#fde9eb; /* สีของหัวข้อหลัก */
-        }
-
-        form {
-            background-color:  #fce4ec; /* สีพื้นหลังของแบบฟอร์ม */
+            background-color: #fce4ec; /* สีพื้นหลังของแบบฟอร์ม */
             padding: 20px;
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* เพิ่มเงาในแบบฟอร์ม */
+            width: 50%;
+             /* จัดข้อความและกล่องใส่ข้อความตรงกลาง */
         }
 
         label {
-            color: #000000; /* สีของป้ายชื่อ */
+            color: #ff7eb6; /* สีของป้ายชื่อ */
             display: block; /* ให้ป้ายชื่อแสดงบนบรรทัดใหม่ */
             margin-bottom: 8px; /* ระยะห่างข้างล่างของป้ายชื่อ */
->>>>>>> 3d471d2b8cd5c93c0d2807eec22624b5d21c80a3
         }
 
         input[type="file"],
@@ -75,7 +42,6 @@
         textarea,
         select,
         input[type="number"] {
-<<<<<<< HEAD
             width: calc(100% - 16px);
             padding: 8px;
             margin-bottom: 16px;
@@ -96,20 +62,6 @@
         input[type="submit"] {
             background-color: #ff7eb6;
             color: #fff;
-=======
-            width: 100%;
-            padding: 8px;
-            margin-bottom: 16px;
-            border: 1px solid #ff7eb6; /* สีขอบของช่องกรอก */
-            border-radius: 4px;
-            box-sizing: border-box;
-            background-color: #fff; /* สีพื้นหลังของช่องกรอก */
-        }
-
-        input[type="submit"] {
-            background-color: #ff7eb6; /* สีปุ่ม Submit */
-            color: #fff; /* สีตัวอักษรของปุ่ม Submit */
->>>>>>> 3d471d2b8cd5c93c0d2807eec22624b5d21c80a3
             padding: 10px 20px;
             border: none;
             border-radius: 4px;
@@ -117,29 +69,18 @@
         }
 
         input[type="submit"]:hover {
-<<<<<<< HEAD
             background-color: #fce4ec;
-=======
-            background-color: #fce4ec; /* สีปุ่ม Submit เมื่อโฮเวอร์ */
->>>>>>> 3d471d2b8cd5c93c0d2807eec22624b5d21c80a3
         }
     </style>
 </head>
 <body>
 
-<<<<<<< HEAD
-    <div class="header">
-        <h2>ข้อมูลแมว</h2>
-    </div>
-=======
-    <h2>กรอกข้อมูลแมว</h2>
->>>>>>> 3d471d2b8cd5c93c0d2807eec22624b5d21c80a3
+    <h2>ข้อมูลแมว</h2>
 
     <form action="/submit" method="post">
         <label for="image">รูปภาพ:</label>
         <input type="file" id="image" name="image" accept="image/*" required>
 
-<<<<<<< HEAD
         <label for="sex">เพศ:</label>
         <input type="text" id="sex" name="sex" required>
 
@@ -150,26 +91,11 @@
         <input type="text" id="age" name="age" required>
 
         <label for="vaccineDoses">จำนวนเข็มที่ฉีดวัคซีน:</label>
-=======
-        <label for="lineId">Line ID:</label>
-        <input type="text" id="lineId" name="lineId" required>
-
-        <label for="description">ลักษณะแมว:</label>
-        <textarea id="description" name="description" rows="4" required></textarea>
-
-        <label for="vaccineType">ประเภทวัคซีน:</label>
-        <input type="text" id="vaccineType" name="vaccineType" required>
-
-        <label for="vaccineDoses">จำนวนเข็ม:</label>
->>>>>>> 3d471d2b8cd5c93c0d2807eec22624b5d21c80a3
         <input type="number" id="vaccineDoses" name="vaccineDoses" required>
 
         <input type="submit" value="Submit">
     </form>
 
 </body>
-<<<<<<< HEAD
 </html>
-=======
-</html>
->>>>>>> 3d471d2b8cd5c93c0d2807eec22624b5d21c80a3
+   

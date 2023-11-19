@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Main reserve</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <link rel="icon" href="https://img.pikbest.com/origin/09/08/90/25GpIkbEsTwmE.png!sw800" type="image/png">
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #fce4ec; /* สีพื้นหลัง */
+      margin: 0;
+      padding: 0;
+    }
+
+    nav.navbar {
+      margin-bottom: 0; /* ไม่ให้ Navbar มีช่องว่างด้านล่าง */
+    }
+
+    .container {
+      max-width: 800px;
+      margin: auto;
+      padding: 20px;
+      background-color: #fff;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      margin-top: 50px;
+      border-radius: 10px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+
+    table, th, td {
+      border: 1px solid #ddd;
+    }
+
+    th, td {
+      padding: 12px;
+      text-align: left;
+    }
+
+    th {
+      background-color: #ff4081; /* สีหัวตาราง */
+      color: #fff;
+    }
+
+    td button, td a {
+      display: inline-block;
+      padding: 8px 12px;
+      cursor: pointer;
+    }
+
+    td button {
+      background-color: #d81b60; /* สีปุ่มยกเลิกการจอง */
+      color: #fff;
+      border: none;
+    }
+
+    td button:hover {
+      background-color: #ff4081; /* สีเมื่อโฮเวอร์ปุ่ม */
+    }
+
+    td a {
+      background-color: #ff4081; /* สีปุ่มจองเพิ่ม */
+      color: #fff;
+      text-decoration: none;
+    }
+
+    td a:hover {
+      background-color: #d81b60; /* สีเมื่อโฮเวอร์ปุ่ม */
+    }
+  </style>
+</head>
+<body>
+
+<!-- Navigation Bar -->
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #ff4081;">
+  <a class="navbar-brand" href="#">Filo</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="#">การจองห้อง</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">ข้อมูลห้อง</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">เงื่อนไขการบริการ</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<!-- Main Content -->
+<div class="container mt-5">
+    <h2>Reservation System</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>วันที่จอง</th>
+          <th>วันเวลาจอง</th>
+          <th>ประเภทห้อง</th>
+          <th>สถานะ</th>
+          <th>ดำเนินการ</th>
+          <th>
+            <a href="reserve.html" class="btn btn-info btn-sm">จองเพิ่ม</a>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>2023-11-20</td>
+          <td>09:00 - 10:00</td>
+          <td>Standard Room</td>
+          <td>กำลังใช้งาน</td>
+          <td>
+            <button onclick="cancelReservation(1)">ยกเลิกการจอง</button>
+          </td>
+        </tr>
+        <!-- เพิ่มข้อมูลการจองเพิ่มเติมตามต้องการ -->
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Bootstrap JS, Popper.js, and jQuery -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // ดึงข้อมูลจาก Local Storage
+      const reservationDataString = localStorage.getItem('reservationData');
+
+      if (reservationDataString) {
+        const reservationData = JSON.parse(reservationDataString);
+
+        // แสดงข้อมูลในตาราง
+        const reservationTable = document.querySelector('table tbody');
+        const newRow = reservationTable.insertRow();
+
+        // เพิ่มข้อมูลในแต่ละเซลล์
+        newRow.insertCell(0).textContent = new Date().toLocaleDateString(); // วันที่จอง
+        newRow.insertCell(1).textContent = new Date().toLocaleTimeString(); // เวลาที่จอง
+        newRow.insertCell(2).textContent = reservationData.roomType; // ประเภทห้อง
+        newRow.insertCell(3).textContent = 'กำลังใช้งาน'; // สถานะ
+
+        // สร้างปุ่มยกเลิกการจอง
+        const cancelButton = document.createElement('button');
+        cancelButton.textContent = 'ยกเลิกการจอง';
+        cancelButton.addEventListener('click', function() {
+          // ตรวจสอบรหัสการจองและทำการยกเลิก (ส่งไปยัง backend หรือทำการลบข้อมูล)
+          console.log('Cancel Reservation ID:', new Date().getTime());
+
+          // นำออกข้อมูลจองใน Local Storage
+          localStorage.removeItem('reservationData');
+
+          // ลบแถวที่เพิ่มเข้ามา
+          reservationTable.deleteRow(newRow.rowIndex);
+        });
+
+        newRow.insertCell(4).appendChild(cancelButton);
+      }
+    });
+  </script>
+  <script>
+    function cancelReservation(reservationId) {
+      // แสดง Modal ยืนยันการยกเลิก
+      $('#cancelConfirmationModal').modal('show');
+
+      // ตั้งค่า function การยืนยันการยกเลิก
+      $('#confirmCancellationButton').on('click', function() {
+        // ตรวจสอบรหัสการจองและทำการยกเลิก (ส่งไปยัง backend หรือทำการลบข้อมูล)
+        console.log('Cancel Reservation ID:', reservationId);
+
+        // ซ่อน Modal
+        $('#cancelConfirmationModal').modal('hide');
+
+        // นำออก event listener เพื่อป้องกันการเรียกซ้ำ
+        $('#confirmCancellationButton').off('click');
+      });
+    }
+  </script>
+
+  <!-- Modal ยืนยันการยกเลิก -->
+  <div class="modal fade" id="cancelConfirmationModal" tabindex="-1" role="dialog" aria-labelledby="cancelConfirmationModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="cancelConfirmationModalLabel">ยืนยันการยกเลิก</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          คุณต้องการยกเลิกการจองหรือไม่?
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">ยกเลิก</button>
+          <button type="button" class="btn btn-danger" id="confirmCancellationButton">ยืนยัน</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

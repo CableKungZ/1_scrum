@@ -49,21 +49,36 @@
       margin: 0;
       padding: 0;
     }
+        /* เพิ่ม CSS เพื่อกำหนดระยะห่างหรือ padding ใน <ul> */
+    ul {
+            margin-left: 60px; /* หรือใช้ padding-left: 20px; ตามที่คุณต้องการ */
+    }
+
+    .f16{
+      font-size: 16px;
+    }
   </style>
    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;600&display=swap">
 </head>
 <body>
 
 <!-- Navigation Bar -->
-<nav class="navbar navbar-expand-lg navbar-light">
-  <a class="navbar-brand" href="#">Filo to Conditions</a>
+<nav class="navbar navbar-expand-lg navbar-light bg-light" >
+  <a class="navbar-brand" href="home.html">
+    <img src="./img/logo.png" alt="Filo Logo" width="30" height="30" class="d-inline-block align-top">
+    Filo
+  </a>
+
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarNav">
-    <ul class="navbar-nav ml-auto">
+  </button >
+  <div class="collapse navbar-collapse" id="navbarNav" >
+    <ul class="navbar-nav ml-auto" >
       <li class="nav-item">
-        <a class="nav-link" href="catdata.html">จัดการข้อมูลแมว</a>
+        <a class="nav-link" href="contract.html">ข้อมูลการติดต่อ</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="maincat.html">จัดการข้อมูลแมว</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="reserve.html">การจองห้อง</a>
@@ -74,9 +89,6 @@
       <li class="nav-item">
         <a class="nav-link" href="Showcondition.html">เงื่อนไขการบริการ</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="login.html">เข้าสู่ระบบ</a>
-      </li>
     </ul>
   </div>
 </nav>
@@ -85,31 +97,30 @@
 <div class="container mt-5">
   <div class="card cat-info">
     <div class="card-body">
-      <h2 style="font-style:unset;font-family:'Courier New', Courier, monospace;" class="font-condition">Condition</h2><br>
+      <h2 style="font-style:unset;font-family:'Courier New', Courier, monospace;font-size: 64px;" class="font-condition">Condition</h2><br>
       <!-- Your main content here -->
 
-      <div style="font-size: 17px;text-align: left;font-style:unset;font-family:'Courier New', Courier, monospace;">
+      <div style="font-size: 20px;text-align: left;font-style:unset;font-family:'Courier New', Courier, monospace;">
         <!-- Cat information content here -->
         1.  ค่าบริการ จ่ายหลังจากลูกค้าได้ทำการจองห้องของแมวเสร็จสิ้น (จ่ายได้ทาง QR-Code)<br><br>
         
-        2. ระหว่างการฝากเลี้ยง หากแมวที่นำมาฝากเกิดการอุบัติเหตุหรือเจ็บป่วยระหว่างานฝากเลี้ยง ทางเจ้าของร้านจะไม่รับผิดชอบทั้งสิ้น<br><br>
+        2. ระหว่างการฝากเลี้ยง หากแมวที่นำมาฝากเกิดการอุบัติเหตุหรือเจ็บป่วยระหว่างานฝากเลี้ยง ทางเจ้าของร้านจะไม่รับผิดชอบทุกกรณี<br><br>
 
-        3. ราคาฝากเลี้ยง ขั้นต่ำ 1 วัน<br><br>
+        3. คิดราคาการใช้บริการขั้นต่ำ 1 วัน<br><br>
 
         4. ระหว่างการดูแล หากแมวเกิดอาการป่วย จะสัตว์แพทย์คอยดูแล และจะคิดบริการเพิ่มเติม<br><br>
 
         5. สิ่งอำนวยความสะดวกภายในห้อง อาทิ ของเล่นแมว กะบะทราย จานข้าว กล้องวงจรปิด<br><br>
 
         6. ประเภทของห้องมี 4 ประเภท<br><br>
-        1.	standard<br>
-        2.	superior<br>
-        3.	deluxe<br>
-        4.	suite<br><br>
-        7. กรณียกเลิกการจอง ต้องบอกก่อนล่วงหน้า 7 วัน<br><br>
+        <ul>
+          <li>Standard - ราคา 250 บาท ต่อวัน</li>
+          <li>Superior - ราคา 450 บาท ต่อวัน</li>
+          <li>Deluxe Room - ราคา 550 บาท ต่อวัน</li>
+          <li>Sweet Room - ราคา 900 บาท ต่อวัน</li>
+      </ul>
+        7. หากต้องการยกเลิกการจอง คืนเงินกรณีแจ้งล่วงหน้าก่อนวันเข้าใช้งานล่วงหน้า 7 วัน<br><br>
         8. จองล่วงหน้าได้ไม่เกิน 1 เดือน<br><br>
-        9. หากข้อมูลของแมวไม่ครบถ้วนให้กรอกข้อมูลของแมวให้ตรงตามใบวัคซีน<br><br>
-        10. เวลาเปิดทำการ 9.00-19.00 (ไม่มีวันหยุด)<br><br>
-        11. การฝากเลี้ยงขั้นต่ำ คือ 1 วัน<br><br>
         <p class="body-carousel-1">
             <p id="slider" class="root-carousel ">
                 <input class="inputcarousel" type="radio" name="slider" id="s1" checked/>

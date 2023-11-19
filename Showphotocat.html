@@ -57,7 +57,8 @@
 <!-- Navigation Bar -->
 <nav class="navbar navbar-expand-lg navbar-light " style="background-color: #f8f2f4;">
   <a class="navbar-brand" href="home.html">
-    <img > Filo </a>
+    <img src="./cat/cat-1.png" alt="Filo Logo" width="60" height="50" class="d-inline-block align-top">
+    Cat : Whiskers</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -84,32 +85,20 @@
 
 <!-- Main Content -->
 <div class="container">
-  <h2>Edit Profile</h2>
-  <div>
-      <!-- Display User Information -->
-      <div>
-          <img class="profile-img" src="img/profile.jpg" alt="Profile Image">
-          <p><strong>Username:</strong> Time_me_me</p>
-          <p><strong>Email:</strong> timemie@gmail.com</p>
+    <div class="cat-info" style="background-color: rgb(247, 213, 219);">
+        <h1>Cat Information</h1>
+    
+        <label for="catSelector">Select a Cat:</label>
+        <label for="catSelector">Whiskers</label>
+        
+    
+        <div id="catDetails" style="text-align: center;">
+          <img src="./img/cat-room2.jpg" width="95%" height="95%">
+          
+
+          
+        </div>
       </div>
-
-      <!-- Edit Profile Form -->
-      <form action="update_profile.php" method="post" enctype="multipart/form-data">
-          <label for="profile-image">Profile Image:</label>
-          <input type="file" id="profile-image" name="profile-image" accept="image/*">
-
-          <label for="username">Username:</label>
-          <input type="text" id="username" name="username" required>
-
-          <label for="email">Email:</label>
-          <input type="email" id="email" name="email" required>
-
-          <label for="password">Password:</label>
-          <input type="password" id="password" name="password" required>
-
-          <button type="submit">Save Changes</button>
-      </form>
-  </div>
 </div>
 <!-- Footer -->
 <footer class=" text-light p-4 mt-5" style="background-color: rgb(250, 159, 174);">

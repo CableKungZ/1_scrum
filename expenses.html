@@ -3,79 +3,92 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>คำนวณค่าใช้จ่ายหลังจากฝากเลี้ยงแมว</title>
+    <title>คำนวณค่าใช้จ่ายในการฝากเลี้ยงแมว</title>
+    <link rel="icon" href="https://img.pikbest.com/origin/09/08/90/25GpIkbEsTwmE.png!sw800" type="image/png">
     <style>
         body {
-            background-color: #fce4ec; /* สีชมพูอ่อน */
+            background-color: #ff7eb6;
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
         }
 
+        #container {
+            width: 50%;
+            margin: 120px auto;
+            background-color: #fce4ec;
+            padding: 50px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
         h1 {
-            color: #333; /* สีตัวอักษรดำ */
+            color: #000; /* สีดำ */
+            text-align: center;
         }
 
         label {
             display: block;
             margin-bottom: 5px;
+            color: #000; /* สีดำ */
         }
 
         input, button {
             margin-bottom: 10px;
+            width: 100%;
+            padding: 10px;
+            box-sizing: border-box;
         }
 
         button {
-            background-color: #4caf50; /* สีเขียว */
-            color: white;
+            background-color: #4caf50;
+            color: #000; /* สีดำ */
             border: none;
-            padding: 10px 20px;
             cursor: pointer;
             border-radius: 5px;
         }
 
         button:hover {
-            background-color: #45a049; /* สีเขียวอ่อน */
+            background-color: #45a049;
         }
 
         #result {
             margin-top: 20px;
             font-weight: bold;
+            color: #000; /* สีดำ */
         }
     </style>
     <script>
         function calculateExpense() {
-            var dailyCost = document.getElementById('dailyCost').value;
-            var numberOfDays = document.getElementById('numberOfDays').value;
+            var dailyCost = parseFloat(document.getElementById('dailyCost').value);
+            var numberOfDays = parseFloat(document.getElementById('numberOfDays').value);
             var totalExpense = dailyCost * numberOfDays;
-            var additionalCareCost = document.getElementById('additionalCareCost').value;
-            totalExpense += additionalCareCost;
-            document.getElementById('result').innerHTML = 'ค่าใช้จ่ายทั้งหมด: ' + totalExpense + ' บาท';
+
+            var additionalCareCost = parseFloat(document.getElementById('additionalCareCost').value);
+            if (!isNaN(additionalCareCost)) {
+                totalExpense += additionalCareCost;
+            }
+
+            document.getElementById('result').innerHTML = 'ค่าใช้จ่ายทั้งหมด: ' + totalExpense.toFixed(2) + ' บาท';
         }
     </script>
 </head>
 <body>
-    <h1>คำนวณค่าใช้จ่ายในการฝากเลี้ยงแมว</h1>
+    <div id="container">
+        <h1>คำนวณค่าใช้จ่ายในการฝากเลี้ยงแมว</h1>
 
-    <label for="dailyCost">ค่าใช้จ่ายต่อวัน (บาท): </label>
-    <input type="number" id="dailyCost" placeholder="กรอกค่าใช้จ่ายต่อวัน" required>
+        <label for="dailyCost">ค่าใช้จ่ายต่อวัน (บาท): </label>
+        <input type="number" id="dailyCost" placeholder="กรอกค่าใช้จ่ายต่อวัน" required>
 
-    <br>
+        <label for="numberOfDays">จำนวนวันที่ฝากเลี้ยง: </label>
+        <input type="number" id="numberOfDays" placeholder="กรอกจำนวนวัน" required>
 
-    <label for="numberOfDays">จำนวนวันที่ฝากเลี้ยง: </label>
-    <input type="number" id="numberOfDays" placeholder="กรอกจำนวนวัน" required>
+        <label for="additionalCareCost">ค่ารักษาเพิ่มเติม (บาท): </label>
+        <input type="number" id="additionalCareCost" placeholder="กรอกค่ารักษาเพิ่มเติม">
 
-    <br>
+        <button onclick="calculateExpense()">คำนวณค่าใช้จ่าย</button>
 
-    <label for="additionalCareCost">ค่ารักษาเพิ่มเติม (บาท): </label>
-    <input type="number" id="additionalCareCost" placeholder="กรอกค่ารักษาเพิ่มเติม">
-
-    <br>
-
-    <button onclick="calculateExpense()">คำนวณค่าใช้จ่าย</button>
-
-    <br>
-
-    <p id="result"></p>
+        <p id="result"></p>
+    </div>
 </body>
 </html>

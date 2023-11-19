@@ -10,7 +10,7 @@
   <style>
     body {
         font-family: Arial, sans-serif;
-        background-color: #f4f4f4;
+        background-color: #fce4ec;
         margin: 0;
         padding: 0;
     }
@@ -18,7 +18,7 @@
     .container {
         max-width: 600px;
         margin: 50px auto;
-        background-color: #fff;
+        background-color: rgb(245, 175, 216);
         padding: 20px;
         border-radius: 8px;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -44,12 +44,18 @@
         border-radius: 4px;
         cursor: pointer;
     }
+
+    .profile-img {
+        max-width: 100px;
+        border-radius: 20%;
+        margin-bottom: 16px;
+    }
 </style>
 </head>
 <body>
 
 <!-- Navigation Bar -->
-<nav class="navbar navbar-expand-lg navbar-light bg-light" >
+<nav class="navbar navbar-expand-lg navbar-light " style="background-color: rgb(250, 159, 174);">
   <a class="navbar-brand" href="home.html">
     <img > Filo </a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -58,13 +64,19 @@
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav ml-auto">
       <li class="nav-item">
-        <a class="nav-link" href="#">เข้าสู่ระบบ</a>
+        <a class="nav-link" href="catdata.html">จัดการข้อมูลแมว</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">ข้อมูลห้อง</a>
+        <a class="nav-link" href="reserve.html">การจองห้อง</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">เงื่อนไขการบริการ</a>
+        <a class="nav-link" href="inforoom2.html">ข้อมูลห้อง</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="Showcondition.html">เงื่อนไขการบริการ</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="login.html">เข้าสู่ระบบ</a>
       </li>
     </ul>
   </div>
@@ -72,19 +84,32 @@
 
 <!-- Main Content -->
 <div class="container">
-    <h2>Edit Profile</h2>
-    <form action="update_profile.php" method="post">
-        <label for="username">Username:</label>
-        <input type="text" id="username" name="username" required>
+  <h2>Edit Profile</h2>
+  <div>
+      <!-- Display User Information -->
+      <div>
+          <img class="profile-img" src="path/to/user/profile/image.jpg" alt="Profile Image">
+          <p><strong>Username:</strong> Time_me_me</p>
+          <p><strong>Email:</strong> timemie@gmail.com</p>
+      </div>
 
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required>
+      <!-- Edit Profile Form -->
+      <form action="update_profile.php" method="post" enctype="multipart/form-data">
+          <label for="profile-image">Profile Image:</label>
+          <input type="file" id="profile-image" name="profile-image" accept="image/*">
 
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password" required>
+          <label for="username">Username:</label>
+          <input type="text" id="username" name="username" required>
 
-        <button type="submit">Save Changes</button>
-    </form>
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" required>
+
+          <label for="password">Password:</label>
+          <input type="password" id="password" name="password" required>
+
+          <button type="submit">Save Changes</button>
+      </form>
+  </div>
 </div>
 <!-- Footer -->
 <footer class="bg-dark text-light p-4 mt-5">

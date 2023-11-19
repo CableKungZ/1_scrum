@@ -113,7 +113,7 @@
 </nav>
 
 <!-- Main Content -->
-<div class="container mt-5">
+<div class="container mt-5" style="max-width: 90%">
   <h2>Reservation System</h2>
   <div class="d-flex justify-content-between align-items-center mb-3">
       <a href="reserve.html" class="btn btn-info btn-sm">จองเพิ่ม</a>
@@ -123,9 +123,12 @@
         <tr>
           <th>วันที่จอง</th>
           <th>วันเวลาจอง</th>
+          <th>จำนวนวัน</th>
           <th>ประเภทห้อง</th>
           <th>สถานะ</th>
           <th>ดำเนินการ</th>
+          <th>CCTV</th>
+          <th>รูป</th>
           
         </tr>
       </thead>
@@ -133,12 +136,40 @@
         <tr>
           <td>2023-11-20</td>
           <td>09:00 - 10:00</td>
+          <td>1 วัน</td>
           <td>Standard Room</td>
           <td>กำลังใช้งาน</td>
+          <td style="text-align: center;">-</td>
           <td style="text-align: center;">
-            <button onclick="cancelReservation(1)">ยกเลิกการจอง</button>
+            <button data-toggle="modal" data-target="#cctvModal" style=" border-radius: 20px;">กล้องวงจรปิด</button>
           </td>
+          <td style="text-align: center;">
+            <button data-toggle="modal" data-target="#imageModal" style="border-radius: 20px;">รูปภาพ</button>
+          </td>          
         </tr>
+        <tr>
+          <td>2023-11-20 ถึงวันที่ 2023-14-20</td>
+          <td>11:00 - 17:00</td>
+          <td>3 วัน</td>
+          <td>Standard Room</td>
+          <td>กำลังจอง</td>
+          <td style="text-align: center;">
+            <button onclick="cancelReservation(1)" style=" border-radius: 20px;">ยกเลิกการจอง</button>
+          </td>
+          <td style="text-align: center;">-</td>
+          <td style="text-align: center;">-</td>
+        </tr>
+        <tr>
+          <td>2023-11-20</td>
+          <td>09:00 - 10:00</td>
+          <td>10 วัน</td>
+          <td>Sweet</td>
+          <td>เสร็จสิ้นการใช้งาน</td>
+          <td style="text-align: center;">-</td>
+          <td style="text-align: center;">-</td>
+          <td style="text-align: center;">-</td>
+        </tr>
+        
         <!-- เพิ่มข้อมูลการจองเพิ่มเติมตามต้องการ -->
       </tbody>
     </table>
@@ -202,6 +233,87 @@
       });
     }
   </script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // ดึงข้อมูลจาก Local Storage
+      const reservationDataString = localStorage.getItem('reservationData');
+  
+      if (reservationDataString) {
+        const reservationData = JSON.parse(reservationDataString);
+  
+        // แสดงข้อมูลในตาราง
+        const reservationTable = document.querySelector('table tbody');
+        const newRow = reservationTable.insertRow();
+  
+        // เพิ่มข้อมูลในแต่ละเซลล์
+        newRow.insertCell(0).textContent = new Date().toLocaleDateString(); // วันที่จอง
+        newRow.insertCell(1).textContent = new Date().toLocaleTimeString(); // เวลาที่จอง
+        newRow.insertCell(2).textContent = reservationData.roomType; // ประเภทห้อง
+        newRow.insertCell(3).textContent = 'กำลังใช้งาน'; // สถานะ
+  
+        // สร้างปุ่มยกเลิกการจอง
+        const cancelButtonCell = newRow.insertCell(4);
+        
+        // Create button and add camera icon
+        const cancelButton = document.createElement('button');
+        cancelButton.innerHTML = '<i class="fas fa-camera"></i> ยกเลิกการจอง';
+        
+        cancelButton.addEventListener('click', function() {
+          // ตรวจสอบรหัสการจองและทำการยกเลิก (ส่งไปยัง backend หรือทำการลบข้อมูล)
+          console.log('Cancel Reservation ID:', new Date().getTime());
+  
+          // นำออกข้อมูลจองใน Local Storage
+          localStorage.removeItem('reservationData');
+  
+          // ลบแถวที่เพิ่มเข้ามา
+          reservationTable.deleteRow(newRow.rowIndex);
+        });
+  
+        cancelButtonCell.appendChild(cancelButton);
+      }
+    });
+  </script>
+  
+<!-- Bootstrap JS, Popper.js, and jQuery -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // ดึงข้อมูลจาก Local Storage
+    const reservationDataString = localStorage.getItem('reservationData');
+
+    if (reservationDataString) {
+      const reservationData = JSON.parse(reservationDataString);
+
+      // แสดงข้อมูลในตาราง
+      const reservationTable = document.querySelector('table tbody');
+      const newRow = reservationTable.insertRow();
+
+      // เพิ่มข้อมูลในแต่ละเซลล์
+      newRow.insertCell(0).textContent = new Date().toLocaleDateString(); // วันที่จอง
+      newRow.insertCell(1).textContent = new Date().toLocaleTimeString(); // เวลาที่จอง
+      newRow.insertCell(2).textContent = reservationData.roomType; // ประเภทห้อง
+      newRow.insertCell(3).textContent = 'กำลังใช้งาน'; // สถานะ
+
+      // สร้างปุ่มยกเลิกการจอง
+      const cancelButton = document.createElement('button');
+      cancelButton.textContent = 'ยกเลิกการจอง';
+      cancelButton.addEventListener('click', function() {
+        // ตรวจสอบรหัสการจองและทำการยกเลิก (ส่งไปยัง backend หรือทำการลบข้อมูล)
+        console.log('Cancel Reservation ID:', new Date().getTime());
+
+        // นำออกข้อมูลจองใน Local Storage
+        localStorage.removeItem('reservationData');
+
+        // ลบแถวที่เพิ่มเข้ามา
+        reservationTable.deleteRow(newRow.rowIndex);
+      });
+
+      newRow.insertCell(4).appendChild(cancelButton);
+    }
+  });
+</script>
 
   <!-- Modal ยืนยันการยกเลิก -->
   <div class="modal fade" id="cancelConfirmationModal" tabindex="-1" role="dialog" aria-labelledby="cancelConfirmationModalLabel" aria-hidden="true">
@@ -223,5 +335,51 @@
       </div>
     </div>
   </div>
+
+  <!-- Modal กล้องวงจร -->
+<div class="modal fade" id="cctvModal" tabindex="-1" role="dialog" aria-labelledby="cctvModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="cctvModalLabel">กล้องวงจรปิด CCTV</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <!-- ส่วนนี้จะให้แสดงรูปภาพ CCTV -->
+        <img src="https://s359.kapook.com/pagebuilder/280e8031-7d84-4d1a-845e-348b4d52d2b3.jpg" class="img-fluid" alt="CCTV Image">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal"><a href="Showphotocat.html">ดู</a></button>
+        <button type="button" class="btn btn-danger" id="confirmCancellationButton">ออก</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal รูปภาพ -->
+<div class="modal fade" id="imageModal" tabindex="-1" role="dialog" aria-labelledby="imageModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="imageModalLabel">รูปภาพแมวของคุณ</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <!-- ส่วนนี้จะให้แสดงรูปภาพ -->
+        <img src="https://ipetshop.co.th/wp-content/uploads/2021/07/Taurineforcat-1024x681.jpg" class="img-fluid" alt="Cat Image">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal"><a href="Showphotocat.html">ดู</a></button>
+        <button type="button" class="btn btn-danger" id="confirmCancellationButton">ออก</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div>
 </body>
 </html>

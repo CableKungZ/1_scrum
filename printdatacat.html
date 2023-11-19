@@ -1,11 +1,91 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cat Information</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f0f0f0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    .cat-info {
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      text-align: center;
+    }
+
+    h1 {
+      color: #333;
+    }
+
+    img {
+      max-width: 100%;
+      border-radius: 5px;
+      margin-bottom: 15px;
+    }
+
+    p {
+      color: #555;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    select {
+      padding: 5px;
+    }
+  </style>
 </head>
 <body>
-    
+
+  <div class="cat-info">
+    <h1>Cat Information</h1>
+
+    <label for="catSelector">Select a Cat:</label>
+    <select id="catSelector" onchange="showCatInfo(this.value)">
+      <option value="whiskers">Whiskers</option>
+      <option value="mittens">Mittens</option>
+      <!-- Add more cat options as needed -->
+    </select>
+
+    <div id="catDetails">
+      <img id="catImage" src="./cat/cat-1.png" width="10%" height="10%" alt="Cat Image">
+      <p><strong>Name:</strong> <span id="catName">Whiskers</span></p>
+      <p><strong>Breed:</strong> <span id="catBreed">Siamese</span></p>
+      <p><strong>Age:</strong> <span id="catAge">2 years</span></p>
+      <p><strong>Color:</strong> <span id="catColor">Seal Point</span></p>
+      <p><strong>Personality:</strong> <span id="catPersonality">Playful and affectionate</span></p>
+    </div>
+  </div>
+
+  <script>
+    function showCatInfo(cat) {
+      const catDetails = {
+        whiskers: { name: "Whiskers", breed: "Siamese", age: "2 years", color: "Seal Point", personality: "Playful and affectionate", image: "./cat/cat-1.png" },
+        mittens: { name: "Mittens", breed: "Persian", age: "3 years", color: "White", personality: "Calm and elegant", image: "./cat/cat-2.png" },
+        // Add more cat details as needed
+      };
+
+      document.getElementById("catName").innerText = catDetails[cat].name;
+      document.getElementById("catBreed").innerText = catDetails[cat].breed;
+      document.getElementById("catAge").innerText = catDetails[cat].age;
+      document.getElementById("catColor").innerText = catDetails[cat].color;
+      document.getElementById("catPersonality").innerText = catDetails[cat].personality;
+      document.getElementById("catImage").src = catDetails[cat].image;
+    }
+  </script>
+
 </body>
 </html>

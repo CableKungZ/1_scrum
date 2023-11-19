@@ -3,9 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>Cat Boarding Reservation System</title>
+  <title>Reserve</title>
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <link rel="icon" href="https://img.pikbest.com/origin/09/08/90/25GpIkbEsTwmE.png!sw800" type="image/png">
   <style>
     body {
       font-family: 'Arial', sans-serif;
@@ -22,7 +23,7 @@
       max-width: 800px;
       margin: auto;
       padding: 20px;
-      background-color: #fff;
+      background-color: #fce4ec;
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
       margin-top: 50px;
       border-radius: 10px;
@@ -37,7 +38,7 @@
 
     button {
       background-color: #ff4081; /* สีปุ่ม */
-      color: #fff;
+      color: #fce4ec;
       padding: 10px;
       border: none;
       border-radius: 5px;
@@ -45,8 +46,19 @@
     }
 
     button:hover {
-      background-color: #d81b60; /* สีเมื่อโฮเวอร์ปุ่ม */
+      background-color: #ff4081; /* สีเมื่อโฮเวอร์ปุ่ม */
     }
+    .btn-group-sm>.btn, .btn-sm {
+    padding: 10px;
+    font-size: .875rem;
+    line-height: 1.5;
+    border-radius: 5px;
+}
+.btn-info {
+    color: #fce4ec;
+    background-color: #ff4081;
+    border-color: #ff4081;
+}
   </style>
 </head>
 <body>
@@ -95,7 +107,10 @@
       <!-- The cat options will be dynamically updated based on the selected room type -->
     </select>
 
-    <button type="button" onclick="submitReservation()">Submit Reservation</button>
+    <div class="d-flex justify-content-between align-items-center">
+      <button type="button" class="btn btn-info btn-sm" onclick="submitReservation()">Submit Reservation</button>
+      <a href="mainreserve.html" class="btn btn-info btn-sm">กลับไปยังหน้าการจอง</a>
+    </div>
   </form>
 </div>
 
@@ -103,6 +118,26 @@
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<!-- เพิ่ม Script ที่จะทำการบันทึกข้อมูลใน Local Storage เมื่อคลิก Submit -->
+<script>
+  function submitReservation() {
+    const roomType = document.getElementById('roomType').value;
+    const catCount = document.getElementById('catCount').value;
+    const reservationDate = document.getElementById('reservationDate').value;
+    const catSelection = document.getElementById('catSelection').value;
+
+    // สร้าง Object ข้อมูลการจอง
+    const reservationData = {
+      roomType: roomType,
+      catCount: catCount,
+      reservationDate: reservationDate,
+      catSelection: catSelection
+    };
+
+    // บันทึกข้อมูลลงใน Local Storage
+    localStorage.setItem('reservationData', JSON.stringify(reservationData));
+  }
+</script>
 
 <script>
   function updateCatCount() {

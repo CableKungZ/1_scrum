@@ -12,41 +12,44 @@
 <body style="background-color: #fce4ec;">
 
 <!-- Navigation Bar -->
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="home.html">
-    <img src="./img/logo.png" alt="Filo Logo" width="30" height="30" class="d-inline-block align-top">
-    Filo
-  </a>
-  <a class="navbar-brand" href="personal_info.html">
-    <img src="img/profile.jpg" alt="Profile" width="30" height="30" class="d-inline-block align-top rounded-circle">
-  </a>
-  <a class="navbar-brand" href="personal_info.html">
-    Welcome, John Doe <!-- Replace with the actual username -->
-  </a>
-
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarNav">
-    <ul class="navbar-nav ml-auto">
-      <li class="nav-item">
-        <a class="nav-link" href="maincat.html">จัดการข้อมูลแมว</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="reserve.html">การจองห้อง</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="inforoom2.html">ข้อมูลห้อง</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="Showcondition.html">เงื่อนไขการบริการ</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="login.html">เข้าสู่ระบบ</a>
-      </li>
-    </ul>
-  </div>
-</nav>
+<nav class="navbar navbar-expand-lg navbar-light bg-light" >
+    <a class="navbar-brand" href="home.html">
+      <img src="./img/logo.png" alt="Filo Logo" width="30" height="30" class="d-inline-block align-top">
+      Filo
+    </a>
+    <a class="navbar-brand" href="personal_info.html">
+      <img src="img/profile.jpg" alt="Profile" width="30" height="30" class="d-inline-block align-top rounded-circle">
+    </a>
+    <a class="navbar-brand" href="personal_info.html">
+      Welcome, John Doe <!-- Replace with the actual username -->
+    </a>
+  
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button >
+    <div class="collapse navbar-collapse" id="navbarNav" >
+      <ul class="navbar-nav ml-auto" >
+        <li class="nav-item">
+          <a class="nav-link" href="contract.html">ข้อมูลการติดต่อ</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="maincat.html">จัดการข้อมูลแมว</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="mainreserve.html">การจองห้อง</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="inforoom2.html">ข้อมูลห้อง</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="Showcondition.html">เงื่อนไขการบริการ</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="index.html">ออกจากระบบ</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
 
 <!-- Main Content -->
 <div class="container content mt-5">
@@ -75,7 +78,7 @@
         <!-- Cat 1 -->
         <tr>
           <th scope="row">1</th>
-          <td><img src="./cat/cat-1.png" alt="Cat 1" width="100"></td>
+          <td><img src="./cat/cat-1.png" alt="Cat 1" width="300"></td>
           <td>male</td>
           <td>สก็อตทิชหรืออะบิสซีเนียน</td>
           <td>Cat 1</td>
@@ -90,7 +93,7 @@
         <!-- Cat 2 -->
         <tr>
           <th scope="row">2</th>
-          <td><img src="./cat/cat-2.png" alt="Cat 2" width="100"></td>
+          <td><img src="./cat/cat-2.png" alt="Cat 2" width="300"></td>
           <td>Female</td>
           <td>เปอร์เซีย</td>
           <td>Cat2</td>
@@ -107,7 +110,7 @@
       </tbody>
     </table>
   </div>
-  <!-- Add Cat Modal -->
+<!-- Add Cat Modal -->
 <div class="modal fade" id="addCatModal" tabindex="-1" role="dialog" aria-labelledby="addCatModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
@@ -119,34 +122,33 @@
         </div>
         <div class="modal-body">
           <!-- Add Cat Form -->
-          <form>
-            <!-- Add your form fields here -->
+          <form id="addCatForm" enctype="multipart/form-data">
             <div class="form-group">
               <label for="catImage">รูปภาพแมว (อัพโหลด)</label>
-              <input type="file" class="form-control" id="catImage" accept="image/*">
+              <input type="file" class="form-control" id="catImage" name="catImage" accept="image/*">
             </div>
             <div class="form-group">
               <label for="gender">เพศ</label>
-              <select class="form-control" id="gender">
+              <select class="form-control" id="gender" name="gender">
                 <option value="male">Male</option>
                 <option value="female">Female</option>
               </select>
             </div>
             <div class="form-group">
               <label for="breed">สายพันธุ์</label>
-              <input type="text" class="form-control" id="breed">
+              <input type="text" class="form-control" id="breed" name="breed">
             </div>
             <div class="form-group">
               <label for="catName">ชื่อแมว</label>
-              <input type="text" class="form-control" id="catName">
+              <input type="text" class="form-control" id="catName" name="catName">
             </div>
             <div class="form-group">
               <label for="vaccinations">จำนวนวัคซีน</label>
-              <input type="number" class="form-control" id="vaccinations" min="0">
+              <input type="number" class="form-control" id="vaccinations" name="vaccinations" min="0">
             </div>
             <div class="form-group">
               <label for="spayedNeutered">การทำหมัน</label>
-              <select class="form-control" id="spayedNeutered">
+              <select class="form-control" id="spayedNeutered" name="spayedNeutered">
                 <option value="yes">ใช่</option>
                 <option value="no">ไม่</option>
               </select>
@@ -160,72 +162,94 @@
       </div>
     </div>
   </div>
-  <script>
-    function addCat() {
-      // Get form values
-      var catImage = document.getElementById('catImage').value;
-      var gender = document.getElementById('gender').value;
-      var breed = document.getElementById('breed').value;
-      var catName = document.getElementById('catName').value;
-      var vaccinations = document.getElementById('vaccinations').value;
-      var spayedNeutered = document.getElementById('spayedNeutered').value;
   
-      // Add a new row to the cat table
-      var table = document.querySelector('.cat-table tbody');
-      var newRow = table.insertRow(table.rows.length);
-  
-      // Add cells to the new row
-      var cellCount = table.rows[0].cells.length;
-      for (var i = 0; i < cellCount; i++) {
-        var newCell = newRow.insertCell(i);
-        switch (i) {
-          case 0:
-            newCell.innerHTML = table.rows.length; // Auto-increment row number
-            break;
-          case 1:
-            newCell.innerHTML = '<img src="' + catImage + '" alt="Cat Image" width="100">';
-            break;
-          case 2:
-            newCell.innerHTML = gender;
-            break;
-          case 3:
-            newCell.innerHTML = breed;
-            break;
-          case 4:
-            newCell.innerHTML = catName;
-            break;
-          case 5:
-            newCell.innerHTML = vaccinations;
-            break;
-          case 6:
-            newCell.innerHTML = spayedNeutered;
-            break;
-          case 7:
-            newCell.innerHTML = '<button class="btn btn-danger btn-sm" onclick="deleteCat(this)">ลบ</button>';
-            break;
-          default:
-            break;
-        }
+  <!-- Your other HTML content -->
+  <!-- Add a new script to handle adding cat information -->
+<script>
+
+  function addCat() {
+    // Get values from the modal fields
+    var catImage = document.getElementById('catImage').files[0];
+    var gender = document.getElementById('gender').value;
+    var breed = document.getElementById('breed').value;
+    var catName = document.getElementById('catName').value;
+    var vaccinations = document.getElementById('vaccinations').value;
+    var spayedNeutered = document.getElementById('spayedNeutered').value;
+
+    // Validate that catName is not empty
+    if (!catName) {
+      alert("กรุณากรอกชื่อแมว");
+      return;
+    }
+
+    // Create a new row
+    var table = document.querySelector('.cat-table tbody');
+    var newRow = table.insertRow(table.rows.length);
+
+    // Add cells to the row
+    var cellNumber = newRow.insertCell(0);
+    var cellImage = newRow.insertCell(1);
+    var cellGender = newRow.insertCell(2);
+    var cellBreed = newRow.insertCell(3);
+    var cellCatName = newRow.insertCell(4);
+    var cellVaccinations = newRow.insertCell(5);
+    var cellSpayedNeutered = newRow.insertCell(6);
+    var cellActions = newRow.insertCell(7);
+
+    // Set cell values
+    cellNumber.innerText = table.rows.length;
+    cellImage.innerHTML = '<img src="" alt="Cat Image" width="100">';
+    cellGender.innerText = gender;
+    cellBreed.innerText = breed;
+    cellCatName.innerText = catName;
+    cellVaccinations.innerText = vaccinations;
+    cellSpayedNeutered.innerText = spayedNeutered;
+    cellActions.innerHTML =
+      '<button class="btn btn-primary btn-sm" onclick="editCat(this)">แก้ไข</button>' +
+      '<button class="btn btn-danger btn-sm" onclick="deleteCat(this)">ลบ</button>';
+
+    // Clear the modal fields
+    document.getElementById('catImage').value = '';
+    document.getElementById('gender').value = 'male';
+    document.getElementById('breed').value = '';
+    document.getElementById('catName').value = '';
+    document.getElementById('vaccinations').value = '';
+    document.getElementById('spayedNeutered').value = 'yes';
+
+    // Close the add cat modal
+    $('#addCatModal').modal('hide');
+
+    // Handle image upload and set the image source dynamically
+    handleImageUpload(catImage, cellImage.querySelector('img'));
+  }
+
+  function handleImageUpload(file, imgElement) {
+    // Create a FormData object
+    var formData = new FormData();
+    formData.append('catImage', file);
+
+    // Perform an AJAX request to upload the file
+    $.ajax({
+      type: 'POST',
+      url: '/upload/cat', // Replace with the actual server-side endpoint
+      data: formData,
+      contentType: false,
+      processData: false,
+      success: function (response) {
+        // Set the image source dynamically after successful upload
+        imgElement.src = '/upload/cat/' + file.name;
+
+      },
+      error: function (error) {
+        // Handle the error response, e.g., display an error message
+        alert("Error uploading cat image");
+        console.error(error);
       }
+    });
+  }
+</script>
   
-      // Clear the form fields
-      document.getElementById('catImage').value = '';
-      document.getElementById('gender').value = 'male'; // Default to 'Male'
-      document.getElementById('breed').value = '';
-      document.getElementById('catName').value = '';
-      document.getElementById('vaccinations').value = '';
-      document.getElementById('spayedNeutered').value = 'yes'; // Default to 'Yes'
   
-      // Close the modal
-      $('#addCatModal').modal('hide');
-    }
-  
-    // Function to delete a cat row
-    function deleteCat(button) {
-      var row = button.parentNode.parentNode;
-      row.parentNode.removeChild(row);
-    }
-  </script>
   <!-- Edit Cat Modal -->
   <div class="modal fade" id="editCatModal" tabindex="-1" role="dialog" aria-labelledby="editCatModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">

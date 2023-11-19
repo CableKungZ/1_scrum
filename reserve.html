@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Cat Boarding Reservation System</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #fce4ec; /* สีพื้นหลัง */
+      margin: 0;
+      padding: 0;
+    }
+
+    nav.navbar {
+      margin-bottom: 0; /* ไม่ให้ Navbar มีช่องว่างด้านล่าง */
+    }
+
+    .container {
+      max-width: 800px;
+      margin: auto;
+      padding: 20px;
+      background-color: #fff;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      margin-top: 50px;
+      border-radius: 10px;
+    }
+
+    select, input {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      box-sizing: border-box;
+    }
+
+    button {
+      background-color: #ff4081; /* สีปุ่ม */
+      color: #fff;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #d81b60; /* สีเมื่อโฮเวอร์ปุ่ม */
+    }
+  </style>
+</head>
+<body>
+
+<!-- Navigation Bar -->
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #ff4081;">
+  <a class="navbar-brand" href="#">Filo</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="#">การจองห้อง</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">ข้อมูลห้อง</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">เงื่อนไขการบริการ</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<!-- Main Content -->
+<div class="container mt-5">
+  <h2>Cat Boarding Reservation System</h2>
+  <form id="reservationForm">
+    <label for="roomType">Select Room Type:</label>
+    <select id="roomType" name="roomType" onchange="updateCatCount()">
+      <option value="sweet">Sweet Room (1 available)</option>
+      <option value="superior">Superior Room (3 available)</option>
+      <option value="deluxe">Deluxe Room (10 available)</option>
+      <option value="standard">Standard Room (20 available)</option>
+    </select>
+
+    <label for="catCount">Select Number of Cats:</label>
+    <input type="number" id="catCount" name="catCount" min="1" max="10" placeholder="Enter number of cats">
+
+    <label for="reservationDate">Select Reservation Date:</label>
+    <input type="date" id="reservationDate" name="reservationDate" min="2023-01-01" max="2023-12-31">
+
+    <label for="catSelection">Select Cat for Boarding:</label>
+    <select id="catSelection" name="catSelection">
+      <!-- The cat options will be dynamically updated based on the selected room type -->
+    </select>
+
+    <button type="button" onclick="submitReservation()">Submit Reservation</button>
+  </form>
+</div>
+
+<!-- Bootstrap JS, Popper.js, and jQuery -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+<script>
+  function updateCatCount() {
+    const roomType = document.getElementById('roomType').value;
+    const catCountInput = document.getElementById('catCount');
+    const catSelection = document.getElementById('catSelection');
+
+    // Update the max attribute of catCount input based on the selected room type
+    if (roomType === 'sweet') {
+      catCountInput.max = 10;
+    } else if (roomType === 'superior') {
+      catCountInput.max = 3;
+    } else if (roomType === 'deluxe') {
+      catCountInput.max = 6;
+    } else if (roomType === 'standard') {
+      catCountInput.max = 1;
+    }
+
+    // Dynamically update cat options based on the selected room type
+    const catOptions = {
+      sweet: ['Cat 1', 'Cat 2', 'Cat 3', 'Cat 4', 'Cat 5', 'Cat 6', 'Cat 7', 'Cat 8', 'Cat 9', 'Cat 10'],
+      superior: ['Cat 1', 'Cat 2', 'Cat 3'],
+      deluxe: ['Cat 1', 'Cat 2', 'Cat 3', 'Cat 4', 'Cat 5', 'Cat 6'],
+      standard: ['Cat 1'],
+    };
+
+    // Remove existing options
+    while (catSelection.options.length > 0) {
+      catSelection.options.remove(0);
+    }
+
+    // Add new options
+    catOptions[roomType].forEach((cat, index) => {
+      const option = document.createElement('option');
+      option.value = `cat${index + 1}`;
+      option.text = cat;
+      catSelection.add(option);
+    });
+  }
+
+  function submitReservation() {
+    const roomType = document.getElementById('roomType').value;
+    const catCount = document.getElementById('catCount').value;
+    const reservationDate = document.getElementById('reservationDate').value;
+    const catSelection = document.getElementById('catSelection').value;
+
+    // Perform further processing, e.g., send data to backend, validate input, etc.
+    console.log('Room Type:', roomType);
+    console.log('Number of Cats:', catCount);
+    console.log('Reservation Date:', reservationDate);
+    console.log('Selected Cat:', catSelection);
+  }
+
+  // Initial update of cat count and cat options based on the default room type
+  updateCatCount();
+</script>
+
+</body>
+</html>

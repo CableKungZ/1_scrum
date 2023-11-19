@@ -82,15 +82,9 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light" >
   <a class="navbar-brand" href="home.html">
     <img src="./img/logo.png" alt="Filo Logo" width="30" height="30" class="d-inline-block align-top">
-    Filo
-  </a>
-  <a class="navbar-brand" href="personal_info.html">
-    <img src="img/profile.jpg" alt="Profile" width="30" height="30" class="d-inline-block align-top rounded-circle">
-  </a>
-  <a class="navbar-brand" href="personal_info.html">
-    Welcome, John Doe <!-- Replace with the actual username -->
-  </a>
 
+  </a>
+  <a class="navbar-brand" href="#">Filo</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button >
@@ -120,7 +114,10 @@
 
 <!-- Main Content -->
 <div class="container mt-5">
-    <h2>Reservation System</h2>
+  <h2>Reservation System</h2>
+  <div class="d-flex justify-content-between align-items-center mb-3">
+      <a href="reserve.html" class="btn btn-info btn-sm">จองเพิ่ม</a>
+  </div>
     <table>
       <thead>
         <tr>
@@ -129,9 +126,7 @@
           <th>ประเภทห้อง</th>
           <th>สถานะ</th>
           <th>ดำเนินการ</th>
-          <th>
-            <a href="reserve.html" class="btn btn-info btn-sm">จองเพิ่ม</a>
-          </th>
+          
         </tr>
       </thead>
       <tbody>
@@ -140,7 +135,7 @@
           <td>09:00 - 10:00</td>
           <td>Standard Room</td>
           <td>กำลังใช้งาน</td>
-          <td>
+          <td style="text-align: center;">
             <button onclick="cancelReservation(1)">ยกเลิกการจอง</button>
           </td>
         </tr>

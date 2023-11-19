@@ -19,7 +19,8 @@ main {
   }
   
   .content {
-    flex: 1;
+      flex: 1;
+      min-height: 90vh; /* 100% of the viewport height */
   }
   
   /* Footer */

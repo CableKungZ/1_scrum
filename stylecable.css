@@ -65,5 +65,16 @@ main {
   .black{
     color:black;
   }
+  .modal-content {
+    background-color: #fce4ec;
+    color: #0c0c0c;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
 
+.modal-header {
+    background-color: #ff7eb6;
+    color: #fff;
+    border-radius: 10px 10px 0 0;
+}
 

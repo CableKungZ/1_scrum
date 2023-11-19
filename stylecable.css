@@ -1,14 +1,14 @@
 /* Custom Styles */
 body {
     background-color: #fce4ec; /* Main background color */
-    height: 600px;
     display: flex;
     flex-direction: column;
   }
-html {
-    height: 100%;
+  html, body {
+    min-height: 100vh; /* 100% of the viewport height */
+    margin: 0; /* Remove default margin */
+    padding: 0; /* Remove default padding */
   }
-  
 main {
     flex: 1;
   }
@@ -18,15 +18,15 @@ main {
     background-color: #ff7eb6; /* Navbar background color */
   }
   
-  /* Main Content */
-  .container {
-    margin-top: 5rem;
+  .content {
+    flex: 1;
   }
   
   /* Footer */
   footer {
     background-color: #fde9eb; /* Footer background color */
     color: white; /* Text color for the footer */
+    padding: 1rem;
   }
   
   /* Footer Contact Us */

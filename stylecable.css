@@ -1,7 +1,6 @@
 /* Custom Styles */
 body {
     background-color: #fce4ec; /* Main background color */
-    height: 600px;
     display: flex;
     flex-direction: column;
   }
